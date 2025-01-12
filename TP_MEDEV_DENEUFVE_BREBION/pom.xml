@@ -9,5 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>22</maven.compiler.release>
         <exec.mainClass>edu.centralenantes.tp_medev_deneufve_brebion.TP_MEDEV_DENEUFVE_BREBION</exec.mainClass>
+        <sonar.organization>mattlerigolo408</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 </project>
