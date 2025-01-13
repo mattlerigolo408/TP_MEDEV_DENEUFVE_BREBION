@@ -6,15 +6,22 @@
     <version>1.0</version>
     <packaging>jar</packaging>
     <properties>
+        <!-- Propriétés Maven -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <!-- Définition du main -->
         <exec.mainClass>edu.centralenantes.tp_medev_deneufve_brebion.TP_MEDEV_DENEUFVE_BREBION</exec.mainClass>
+        <!-- Propriétés de sonar -->
         <sonar.organization>mattlerigolo408</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>${env.SONAR_TOKEN}</sonar.login>
+        <!-- Dossier de génération de la doc -->
+        <javadoc.outputDirectory>${project.build.directory}/javadocMaven</javadoc.outputDirectory>
     </properties>
     <build>
         <plugins>
+            <!-- Plugin pour jacoco -->
             <plugin>
                 <groupId> org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -37,6 +44,20 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Plugin pour Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin pour l'assemblage du JAR avec ses dépendances -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.4.1</version>
@@ -50,15 +71,20 @@
                 </executions>
                 <configuration>
                     <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>edu.centralenantes.tp_medev_deneufve_brebion.TP_MEDEV_DENEUFVE_BREBION</mainClass>
-                        </manifest>
+                        <manifestEntries>
+                            <Main-Class>edu.centralenantes.tp_medev_deneufve_brebion.TP_MEDEV_DENEUFVE_BREBION</Main-Class>
+                        </manifestEntries>
                     </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                 </configuration>
+            </plugin>
+            <!-- Plugin pour Sonar -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
             </plugin>
         </plugins>
     </build>
