@@ -1,6 +1,5 @@
 package edu.centralenantes.tp_medev_deneufve_brebion;
 
-import java.util.ArrayList;
 
 /**
  * Plateau de jeu
@@ -43,6 +42,35 @@ public class Plateau {
      */
     public void setPlateau(Pion[][] plateau) {
         this.plateau = plateau;
+    }
+    
+    /**
+     * Vérifie si un placement est valide
+     * @param estBlanc
+     * Couleur du pion (true si blanc, false si noir)
+     * @param x
+     * 
+     * @param y
+     * @return 
+     */
+    public boolean estPlacementValide(boolean estBlanc, int x, int y) {
+        if ((x<0 || x>7) || (y<0 || y>7)) {
+            return false;
+        }
+        if (plateau[x][y] != null) {
+            return false;
+        }
+        
+        else {
+            return true;
+        }
+    }
+    
+    public void poserPion(boolean estBlanc, int x, int y) {
+        if (this.estPlacementValide(estBlanc, x, y)) {
+            plateau[x][y] = new Pion();
+            plateau[x][y].setBlanc(estBlanc);
+        }
     }
     
     
