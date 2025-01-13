@@ -26,9 +26,8 @@ public class Pion {
      * Constructeur pour initialiser un pion avec une couleur.
      * 
      * @param blanc true pour un pion blanc, false pour un pion noir.
-     * @param c La case sur laquelle le pion est placé (inutile dans cette version mais peut être utile si la case est utilisée).
      */
-    public Pion(boolean blanc, Case c) {
+    public Pion(boolean blanc) {
         this.blanc = blanc;
     }
 

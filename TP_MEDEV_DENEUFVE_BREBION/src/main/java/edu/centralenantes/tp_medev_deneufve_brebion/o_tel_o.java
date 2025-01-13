@@ -7,21 +7,17 @@ import java.util.Scanner;
  * Elle contient l'agrégation des composants nécessaires au fonctionnement du jeu,
  * comme le plateau et les joueurs.
  */
-public class o_tel_o {
+public class O_tel_o {
     private static Plateau plateau;
     private int nbTour;
-    private static Joueur j1;
-    private static Joueur j2;
 
     /**
      * Constructeur pour initialiser le jeu avec un plateau et deux joueurs.
      * J1 représente le joueur Blanc, et J2 le joueur Noir.
      */
-    public o_tel_o() {
+    public O_tel_o() {
         this.plateau = new Plateau();
         this.nbTour = 0;
-        this.j1 = new Joueur(true);  // Joueur Blanc
-        this.j2 = new Joueur(false); // Joueur Noir
     }
 
     /**
@@ -45,7 +41,7 @@ public class o_tel_o {
             if (plateau.estPlacementValide(joueurBlanc, x, y)) {
                 plateau.poserPion(joueurBlanc, x, y); // Place le pion sur le plateau
                 coupValide = true;
-                System.out.println("Pion placé en (" + x + ", " + y + ") par le joueur " + (joueurBlanc ? "Blanc" : "Noir"));
+                System.out.println("Pion placé en (" + x+1 + ", " + y+1 + ") par le joueur " + (joueurBlanc ? "Blanc" : "Noir"));
             } else {
                 System.out.println("Placement invalide ! Essayez une autre position.");
             }
@@ -111,7 +107,7 @@ public class o_tel_o {
      */
     public static void jeu() {
         System.out.println("Bienvenue dans le jeu O tel O !");
-        o_tel_o jeu = new o_tel_o();
+        O_tel_o jeu = new O_tel_o();
         // Boucle principale du jeu (à remplacer par une condition de fin)
         while (true) {
             jeu.afficherPlateau();

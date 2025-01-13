@@ -11,6 +11,6 @@ package edu.centralenantes.tp_medev_deneufve_brebion;
 public class TP_MEDEV_DENEUFVE_BREBION {
 
     public static void main(String[] args) {
-        o_tel_o.jeu();
+        O_tel_o.jeu();
     }
 }
