@@ -69,6 +69,12 @@ public class O_tel_o {
         return plateau;
     }
 
+    public static void setPlateau(Plateau plateau) {
+        O_tel_o.plateau = plateau;
+    }
+    
+    
+
     /**
      * Détermine si le joueur actif est Blanc.
      *
