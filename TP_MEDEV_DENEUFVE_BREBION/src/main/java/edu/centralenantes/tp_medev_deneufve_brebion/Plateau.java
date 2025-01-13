@@ -25,6 +25,7 @@ public class Plateau {
         plateau[3][4] = new Pion();
         plateau[4][3] = new Pion();
     }
+   
 
     /**
      * Getter du plateau
