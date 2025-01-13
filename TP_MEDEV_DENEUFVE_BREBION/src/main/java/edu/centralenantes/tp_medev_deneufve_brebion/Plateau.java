@@ -152,6 +152,46 @@ public class Plateau {
         }
     }
     
+    /**
+     * Détermine si la partie est finie
+     * @return 
+     * true si la partie est finie, false sinon
+     */
+    public boolean partieFinie() {
+        for (int i=0;i<8;i++) {
+            for (int j=0;j<8;j++) {
+                if ((this.estPlacementValide(true, i, j) || this.estPlacementValide(false, i, j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    public String getGagnant() {
+        int nbBlanc = 0;
+        int nbNoir = 0;
+        
+        for (int i=0;i<8;i++) {
+            for (int j=0;j<8;j++) {
+                if (this.plateau[i][j].isBlanc()) {
+                    nbBlanc++;
+                }
+                else {
+                    nbNoir++;
+                }
+            }
+        } 
+        if (nbBlanc > nbNoir) {
+            return "Blanc";
+        }
+        if (nbNoir > nbBlanc) {
+            return "Noir";
+        }
+        else {
+            return "Nul";
+        }
+    }
     
    
     
