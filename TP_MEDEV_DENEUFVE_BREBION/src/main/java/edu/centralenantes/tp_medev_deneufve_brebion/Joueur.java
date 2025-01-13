@@ -16,13 +16,10 @@ public class Joueur {
     * Constructeur pour initialiser un joueur avec sa couleur et la référence au jeu.
     * 
     * @param blanc Indique si le joueur est Blanc (true) ou Noir (false).
-    * @param jeu Référence à l'objet principal du jeu.
     */
-    public Joueur(boolean blanc, Jeu jeu) {
+    public Joueur(boolean blanc) {
         this.blanc = blanc;
-        this.jeu = jeu;
     }
-    
     
     /**
      * Indique si le joueur est Blanc (true) ou Noir (false).
@@ -48,26 +45,5 @@ public class Joueur {
      */
     private void placerPion(Pion p) {
               
-    }
-    
-    /**
-     * Calcule les cases disponibles pour le placement d'un pion selon les règles du jeu.
-     * 
-     * @param plateau Le plateau actuel du jeu.
-     * @return La liste des cases où le joueur peut placer un pion.
-     */
-    public List<int[]> calculerPlacementsPossibles(Plateau plateau) {
-        List<int[]> casesDisponibles = new ArrayList<>();
-
-        // Parcourt toutes les cases du plateau.
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-                // Vérifie si le placement est valide pour la case (x, y).
-                if (plateau.estPlacementValide(blanc, x, y)) {
-                    casesDisponibles.add(new int[] {x, y});
-                }
-            }
-        }
-        return casesDisponibles;
     }
 }
