@@ -168,17 +168,24 @@ public class Plateau {
         return true;
     }
     
+    /**
+     * Détermine le gagnant de la partie
+     * @return 
+     * String de la couleur du gagnant, où Nul en cas d'égalité
+     */
     public String getGagnant() {
         int nbBlanc = 0;
         int nbNoir = 0;
         
         for (int i=0;i<8;i++) {
             for (int j=0;j<8;j++) {
-                if (this.plateau[i][j].isBlanc()) {
-                    nbBlanc++;
-                }
-                else {
-                    nbNoir++;
+                if (this.plateau[i][j] != null) {
+                    if (this.plateau[i][j].isBlanc()) {
+                        nbBlanc++;
+                    }
+                    else {
+                        nbNoir++;
+                    }
                 }
             }
         } 
