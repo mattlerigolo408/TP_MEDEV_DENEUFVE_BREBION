@@ -90,9 +90,9 @@ public class O_tel_o {
            for (int j = 0; j < 8; j++) {
                if(plateau.getPlateau()[i][j]!= null){
                    if (plateau.getPlateau()[i][j].isBlanc()) {
-                   System.out.print("◘ "); // Pion blanc
+                   System.out.print("B "); // Pion blanc
                } else if (! plateau.getPlateau()[i][j].isBlanc()) {
-                   System.out.print("• "); // Pion noir
+                   System.out.print("N "); // Pion noir
                }
                } else {
                    System.out.print("  "); // Case vide
