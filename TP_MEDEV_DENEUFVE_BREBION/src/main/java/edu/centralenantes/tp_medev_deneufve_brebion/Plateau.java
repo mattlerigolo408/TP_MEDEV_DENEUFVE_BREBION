@@ -192,8 +192,4 @@ public class Plateau {
             return "Nul";
         }
     }
-    
-   
-    
-    
 }

@@ -30,17 +30,16 @@ public class o_tel_o {
      * et vérifie la validité du coup avant de l'exécuter.
      */
     public void tour() {
-        boolean joueurBlanc = nbTour % 2 == 0;
+        boolean joueurBlanc = joueurActifEstBlanc();
         System.out.println("Tour du joueur " + (joueurBlanc ? "Blanc" : "Noir"));
-
         Scanner scanner = new Scanner(System.in);
         boolean coupValide = false;
 
         // Boucle pour demander un coup valide
         while (!coupValide) {
             System.out.println("Entrez la position où vous souhaitez placer votre pion (format : x y) : ");
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
+            int x = scanner.nextInt()-1;
+            int y = scanner.nextInt()-1;
 
             // Vérifie si le coup est valide
             if (plateau.estPlacementValide(joueurBlanc, x, y)) {
@@ -53,7 +52,7 @@ public class o_tel_o {
         }
 
         nbTour++;
-        System.out.println("Tour terminé. Prochain joueur : " + (nbTour % 2 == 0 ? "Blanc" : "Noir"));
+        System.out.println("Tour terminé. Prochain joueur : " + (nbTour % 2 != 0 ? "Blanc" : "Noir"));
     }
 
     /**
@@ -80,7 +79,7 @@ public class o_tel_o {
      * @return true si le joueur actif est Blanc, false s'il est Noir.
      */
     public boolean joueurActifEstBlanc() {
-        return nbTour % 2 == 0;
+        return nbTour % 2 != 0;
     }
 
     /**
@@ -88,14 +87,17 @@ public class o_tel_o {
     * ainsi que des lettres horizontales pour les colonnes et des espaces pour les cases vides.
     */
    public void afficherPlateau() {
-       System.out.println("  A B C D E F G H"); // En-tête des colonnes
+       System.out.println("  1 2 3 4 5 6 7 8"); // En-tête des colonnes
+       // System.out.println("  A B C D E F G H"); // En-tête des colonnes
        for (int i = 0; i < 8; i++) {
            System.out.print(i + 1 + " "); // Numéros des lignes (1 à 8)
            for (int j = 0; j < 8; j++) {
-               if (plateau.getPlateau()[i][j].isBlanc()) {
+               if(plateau.getPlateau()[i][j]!= null){
+                   if (plateau.getPlateau()[i][j].isBlanc()) {
                    System.out.print("◘ "); // Pion blanc
                } else if (! plateau.getPlateau()[i][j].isBlanc()) {
                    System.out.print("• "); // Pion noir
+               }
                } else {
                    System.out.print("  "); // Case vide
                }
@@ -105,19 +107,19 @@ public class o_tel_o {
    }
 
     /**
-     * Main du programme.
      * Initialise le jeu et exécute les tours jusqu'à la fin de la partie.
      */
-    public static void main(String[] args) {
+    public static void jeu() {
         System.out.println("Bienvenue dans le jeu O tel O !");
         o_tel_o jeu = new o_tel_o();
         // Boucle principale du jeu (à remplacer par une condition de fin)
         while (true) {
+            jeu.afficherPlateau();
             jeu.tour();
             // Vérifie si la partie est terminée (condition à implémenter)
             if (plateau.partieFinie()) {
                 System.out.println("La partie est terminée !");
-                if(plateau.getGagnant()=="Nul"){
+                if("Nul".equals(plateau.getGagnant())){
                     System.out.println("Match NUL !");
                 }
                 else{

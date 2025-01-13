@@ -11,6 +11,6 @@ package edu.centralenantes.tp_medev_deneufve_brebion;
 public class TP_MEDEV_DENEUFVE_BREBION {
 
     public static void main(String[] args) {
-        System.out.println("Hello World ! What a beautiful day !");
+        o_tel_o.jeu();
     }
 }
