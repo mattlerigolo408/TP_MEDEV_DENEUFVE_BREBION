@@ -117,7 +117,12 @@ public class o_tel_o {
             // Vérifie si la partie est terminée (condition à implémenter)
             if (plateau.partieFinie()) {
                 System.out.println("La partie est terminée !");
-                System.out.println("Le joueur " + (plateau.getGagnant() ? "Blanc" : "Noir") + " a gagné !");
+                if(plateau.getGagnant()=="Nul"){
+                    System.out.println("Match NUL !");
+                }
+                else{
+                    System.out.println("Le joueur " + plateau.getGagnant() + " a gagné !");
+                }
                 break;
             }
         }
